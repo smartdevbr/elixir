@@ -16,6 +16,11 @@ defmodule Fatura do
     end
   end
 
+  def faturas_a_pagar(faturas, quantidade) do
+    Enum.split(faturas, quantidade)
+  end
+  
+
   @doc """
     Ao receber `fatura` retorna um array de faturas ordenado
       ## Exemplos
@@ -36,5 +41,4 @@ defmodule Fatura do
     Enum.member?(faturas, fatura)
   end
 
-  
 end

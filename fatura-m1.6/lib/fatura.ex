@@ -16,6 +16,7 @@ defmodule Fatura do
     end
   end
 
+
   @doc """
     Ao receber `fatura` retorna um array de faturas ordenado
       ## Exemplos
