@@ -16,6 +16,12 @@ defmodule Fatura do
     end
   end
 
+  def pagar_faturas(faturas, vencimento, quantidade) do
+    criar_faturas(faturas, vencimento)
+    |> ordena_fatura
+    |> faturas_a_pagar(quantidade)
+  end
+
   def faturas_a_pagar(faturas, quantidade) do
     Enum.split(faturas, quantidade)
   end
