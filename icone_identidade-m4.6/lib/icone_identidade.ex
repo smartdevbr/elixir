@@ -21,10 +21,16 @@ defmodule IconeIdentidade do
     |> salvar(input)
   end
 
+  @doc """
+    salva a Imagem
+  """
   def salvar(imagem, input) do
     File.write("#{input}.png", imagem)
   end
 
+  @doc """
+    Gera um binario da imagem
+  """
   def desenhar(%IconeIdentidade.Imagem{color: cor, pixel_map: pixel_map}) do
     imagem = :egd.create(250, 250)
     preencha = :egd.color(cor)
@@ -46,6 +52,9 @@ defmodule IconeIdentidade do
     %IconeIdentidade.Imagem{imagem | color: {r,g,b} }
   end
 
+  @doc """
+    Constroi os pixels para gerar a imagem
+  """
   def constroi_pixel(%IconeIdentidade.Imagem{grid: grid} = imagem) do
     pixel_map = Enum.map grid, fn{_valor, indice} -> 
       h = rem(indice, 5) * 50
@@ -100,11 +109,13 @@ defmodule IconeIdentidade do
     %IconeIdentidade.Imagem{imagem | grid: grid}
   end
 
+  @doc """
+    Função será chamado após ter a tabela, ao ser chamada irá remover todos os números impares da `grid`
+  """
   def remover_impar(%IconeIdentidade.Imagem{grid: grid} = imagem) do
     new_grid = Enum.filter grid, fn {valor, _indice}  -> 
       rem(valor, 2) == 0
     end
-
     %IconeIdentidade.Imagem{ imagem | grid: new_grid}
   end
 
