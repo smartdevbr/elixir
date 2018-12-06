@@ -13,7 +13,6 @@
                         'Elixir.TodoAppWeb.ErrorView',
                         'Elixir.TodoAppWeb.Gettext',
                         'Elixir.TodoAppWeb.LayoutView',
-                        'Elixir.TodoAppWeb.PageController',
                         'Elixir.TodoAppWeb.PageView',
                         'Elixir.TodoAppWeb.Router',
                         'Elixir.TodoAppWeb.Router.Helpers',

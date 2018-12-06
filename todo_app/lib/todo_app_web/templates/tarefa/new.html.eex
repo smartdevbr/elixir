@@ -1,7 +1,9 @@
 <%= form_for @changeset, Routes.tarefa_path(@conn, :create), fn f -> %>
     <div class="form-group">
     <%= text_input f, :titulo, placeholder: "Titulo", class: "form-control" %>
+    <%= error_tag f, :titulo %>
     <%= select f, :pronta, [true, false], class: "form-control", style: "display: block", prompt: "A tarefa está pronta?" %>
+    <%= error_tag f, :pronta %>
     </div>
     <%= submit "Criar tarefa", class: "btn btn-primary" %>
 <% end %>

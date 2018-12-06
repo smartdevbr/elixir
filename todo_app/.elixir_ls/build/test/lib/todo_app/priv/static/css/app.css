@@ -135,3 +135,7 @@ header nav a {
 
 /* This file is for your main application css. */
 
+.help-block {
+    color: red;
+    font-size: 15px;
+}
