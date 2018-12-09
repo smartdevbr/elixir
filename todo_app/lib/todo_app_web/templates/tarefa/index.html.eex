@@ -1,1 +1,24 @@
-Lista de Tarefas
+<h1>Lista de Tarefas</h1>
+
+<ul class="collection">
+<%= for tarefa <- @tarefas do %>
+    <li class="collection-item">
+    <%= gettext "Tarefa: %{tarefa} - Status: %{pronta}", tarefa: tarefa.titulo, pronta: tarefa.pronta %>
+    
+    <div class="secondary-content">
+    <%= link to: Routes.tarefa_path(@conn, :edit, tarefa) do %>
+    <i class="material-icons">edit</i>
+    <% end %>
+    <%= link to: Routes.tarefa_path(@conn, :delete, tarefa), method: :delete do %>
+        <i class="material-icons">delete</i>
+    <% end%>
+    </div>
+    </li>
+<% end %>
+</ul>
+
+<div class="fixed-action-btn">
+    <%= link to: Routes.tarefa_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i> 
+     <% end %>
+</div>
